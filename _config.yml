@@ -21,7 +21,7 @@ google_analytics:   # Google analytics code, get your code here https://www.goog
 disqus:
   shortname:        # Disqus comments shortname, requires Disqus account https://disqus.com/
 
-instagram_accesstoken: 
+instagram_accesstoken:
 
 footer:             # Default footer image settings
   copyright:        Made by <a href="https://unbound.studio/">human</a> in Bratislava, Slovakia.
@@ -42,19 +42,19 @@ social_share:
 
 # Social networks
 social_networks:
-  email:          
-  website:        
+  email:
+  website:
   facebook:         https://www.facebook.com/
-  flickr:         
-  dribbble:       
-  github:         
-  reddit:         
+  flickr:
+  dribbble:
+  github:
+  reddit:
   instagram:        https://www.instagram.com/
-  linkedin:       
-  pinterest:      
+  linkedin:
+  pinterest:
   twitter:          https://twitter.com/
-  vimeo:          
-  youtube:          https://www.youtube.com/    
+  vimeo:
+  youtube:          https://www.youtube.com/
 
 # Strings
 strings:
@@ -83,6 +83,7 @@ exclude:
 
 sass:
   style:            compressed
+  sass_dir:         _sass
 
 # collections:
 collections:
