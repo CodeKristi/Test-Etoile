@@ -9,7 +9,8 @@ ruby RUBY_VERSION
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "3.6.2"
+# gem "jekyll", "3.6.2"
+gem "jekyll", "4.1.1"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 # gem "minima", "~> 2.0"
@@ -20,13 +21,14 @@ gem "jekyll", "3.6.2"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-   gem "jekyll-feed", "~> 0.6"
+    # gem "jekyll-feed", "~> 0.6"
+   gem "jekyll-feed", "~> 0.15"
    gem 'jekyll-paginate', '~> 1.1'
    gem 'jekyll-seo-tag'
    gem 'jekyll-gist'
    gem 'jekyll-avatar'
    gem 'jekyll-sitemap'
-   gem 'jekyll-livereload'
+   # gem 'jekyll-livereload', "~> 0.2.2"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

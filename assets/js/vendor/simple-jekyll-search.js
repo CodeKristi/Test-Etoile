@@ -1,10 +1,203 @@
 /*!
-  * Simple-Jekyll-Search v1.7.1 (https://github.com/christian-fei/Simple-Jekyll-Search)
-  * Copyright 2015-2018, Christian Fei
+  * Simple-Jekyll-Search
+  * Copyright 2015-2020, Christian Fei
   * Licensed under the MIT License.
   */
 
 (function(){
+'use strict'
+
+var _$Templater_7 = {
+  compile: compile,
+  setOptions: setOptions
+}
+
+var options = {}
+options.pattern = /\{(.*?)\}/g
+options.template = ''
+options.middleware = function () {}
+
+function setOptions (_options) {
+  options.pattern = _options.pattern || options.pattern
+  options.template = _options.template || options.template
+  if (typeof _options.middleware === 'function') {
+    options.middleware = _options.middleware
+  }
+}
+
+function compile (data) {
+  return options.template.replace(options.pattern, function (match, prop) {
+    var value = options.middleware(prop, data[prop], options.template)
+    if (typeof value !== 'undefined') {
+      return value
+    }
+    return data[prop] || match
+  })
+}
+
+'use strict';
+
+function fuzzysearch (needle, haystack) {
+  var tlen = haystack.length;
+  var qlen = needle.length;
+  if (qlen > tlen) {
+    return false;
+  }
+  if (qlen === tlen) {
+    return needle === haystack;
+  }
+  outer: for (var i = 0, j = 0; i < qlen; i++) {
+    var nch = needle.charCodeAt(i);
+    while (j < tlen) {
+      if (haystack.charCodeAt(j++) === nch) {
+        continue outer;
+      }
+    }
+    return false;
+  }
+  return true;
+}
+
+var _$fuzzysearch_1 = fuzzysearch;
+
+'use strict'
+
+/* removed: var _$fuzzysearch_1 = require('fuzzysearch') */;
+
+var _$FuzzySearchStrategy_5 = new FuzzySearchStrategy()
+
+function FuzzySearchStrategy () {
+  this.matches = function (string, crit) {
+    return _$fuzzysearch_1(crit.toLowerCase(), string.toLowerCase())
+  }
+}
+
+'use strict'
+
+var _$LiteralSearchStrategy_6 = new LiteralSearchStrategy()
+
+function LiteralSearchStrategy () {
+  this.matches = function (str, crit) {
+    if (!str) return false
+
+    str = str.trim().toLowerCase()
+    crit = crit.trim().toLowerCase()
+
+    return crit.split(' ').filter(function (word) {
+      return str.indexOf(word) >= 0
+    }).length === crit.split(' ').length
+  }
+}
+
+'use strict'
+
+var _$Repository_4 = {
+  put: put,
+  clear: clear,
+  search: search,
+  setOptions: __setOptions_4
+}
+
+/* removed: var _$FuzzySearchStrategy_5 = require('./SearchStrategies/FuzzySearchStrategy') */;
+/* removed: var _$LiteralSearchStrategy_6 = require('./SearchStrategies/LiteralSearchStrategy') */;
+
+function NoSort () {
+  return 0
+}
+
+var data = []
+var opt = {}
+
+opt.fuzzy = false
+opt.limit = 10
+opt.searchStrategy = opt.fuzzy ? _$FuzzySearchStrategy_5 : _$LiteralSearchStrategy_6
+opt.sort = NoSort
+
+function put (data) {
+  if (isObject(data)) {
+    return addObject(data)
+  }
+  if (isArray(data)) {
+    return addArray(data)
+  }
+  return undefined
+}
+function clear () {
+  data.length = 0
+  return data
+}
+
+function isObject (obj) {
+  return Boolean(obj) && Object.prototype.toString.call(obj) === '[object Object]'
+}
+
+function isArray (obj) {
+  return Boolean(obj) && Object.prototype.toString.call(obj) === '[object Array]'
+}
+
+function addObject (_data) {
+  data.push(_data)
+  return data
+}
+
+function addArray (_data) {
+  var added = []
+  clear()
+  for (var i = 0, len = _data.length; i < len; i++) {
+    if (isObject(_data[i])) {
+      added.push(addObject(_data[i]))
+    }
+  }
+  return added
+}
+
+function search (crit) {
+  if (!crit) {
+    return []
+  }
+  return findMatches(data, crit, opt.searchStrategy, opt).sort(opt.sort)
+}
+
+function __setOptions_4 (_opt) {
+  opt = _opt || {}
+
+  opt.fuzzy = _opt.fuzzy || false
+  opt.limit = _opt.limit || 10
+  opt.searchStrategy = _opt.fuzzy ? _$FuzzySearchStrategy_5 : _$LiteralSearchStrategy_6
+  opt.sort = _opt.sort || NoSort
+}
+
+function findMatches (data, crit, strategy, opt) {
+  var matches = []
+  for (var i = 0; i < data.length && matches.length < opt.limit; i++) {
+    var match = findMatchesInObject(data[i], crit, strategy, opt)
+    if (match) {
+      matches.push(match)
+    }
+  }
+  return matches
+}
+
+function findMatchesInObject (obj, crit, strategy, opt) {
+  for (var key in obj) {
+    if (!isExcluded(obj[key], opt.exclude) && strategy.matches(obj[key], crit)) {
+      return obj
+    }
+  }
+}
+
+function isExcluded (term, excludedTerms) {
+  var excluded = false
+  excludedTerms = excludedTerms || []
+  for (var i = 0, len = excludedTerms.length; i < len; i++) {
+    var excludedTerm = excludedTerms[i]
+    if (!excluded && new RegExp(term).test(excludedTerm)) {
+      excluded = true
+    }
+  }
+  return excluded
+}
+
 /* globals ActiveXObject:false */
 
 'use strict'
@@ -69,199 +262,6 @@ var _$OptionsValidator_3 = function OptionsValidator (params) {
     }
     return typeof params.required !== 'undefined' && params.required instanceof Array
   }
-}
-
-'use strict';
-
-function fuzzysearch (needle, haystack) {
-  var tlen = haystack.length;
-  var qlen = needle.length;
-  if (qlen > tlen) {
-    return false;
-  }
-  if (qlen === tlen) {
-    return needle === haystack;
-  }
-  outer: for (var i = 0, j = 0; i < qlen; i++) {
-    var nch = needle.charCodeAt(i);
-    while (j < tlen) {
-      if (haystack.charCodeAt(j++) === nch) {
-        continue outer;
-      }
-    }
-    return false;
-  }
-  return true;
-}
-
-var _$fuzzysearch_1 = fuzzysearch;
-
-'use strict'
-
-/* removed: var _$fuzzysearch_1 = require('fuzzysearch') */;
-
-var _$FuzzySearchStrategy_5 = new FuzzySearchStrategy()
-
-function FuzzySearchStrategy () {
-  this.matches = function (string, crit) {
-    return _$fuzzysearch_1(crit.toLowerCase(), string.toLowerCase())
-  }
-}
-
-'use strict'
-
-var _$LiteralSearchStrategy_6 = new LiteralSearchStrategy()
-
-function LiteralSearchStrategy () {
-  this.matches = function (str, crit) {
-    if (!str) return false
-
-    str = str.trim().toLowerCase()
-    crit = crit.toLowerCase()
-
-    return crit.split(' ').filter(function (word) {
-      return str.indexOf(word) >= 0
-    }).length > 0
-  }
-}
-
-'use strict'
-
-var _$Repository_4 = {
-  put: put,
-  clear: clear,
-  search: search,
-  setOptions: setOptions
-}
-
-/* removed: var _$FuzzySearchStrategy_5 = require('./SearchStrategies/FuzzySearchStrategy') */;
-/* removed: var _$LiteralSearchStrategy_6 = require('./SearchStrategies/LiteralSearchStrategy') */;
-
-function NoSort () {
-  return 0
-}
-
-var data = []
-var opt = {}
-
-opt.fuzzy = false
-opt.limit = 10
-opt.searchStrategy = opt.fuzzy ? _$FuzzySearchStrategy_5 : _$LiteralSearchStrategy_6
-opt.sort = NoSort
-
-function put (data) {
-  if (isObject(data)) {
-    return addObject(data)
-  }
-  if (isArray(data)) {
-    return addArray(data)
-  }
-  return undefined
-}
-function clear () {
-  data.length = 0
-  return data
-}
-
-function isObject (obj) {
-  return Boolean(obj) && Object.prototype.toString.call(obj) === '[object Object]'
-}
-
-function isArray (obj) {
-  return Boolean(obj) && Object.prototype.toString.call(obj) === '[object Array]'
-}
-
-function addObject (_data) {
-  data.push(_data)
-  return data
-}
-
-function addArray (_data) {
-  var added = []
-  clear()
-  for (var i = 0, len = _data.length; i < len; i++) {
-    if (isObject(_data[i])) {
-      added.push(addObject(_data[i]))
-    }
-  }
-  return added
-}
-
-function search (crit) {
-  if (!crit) {
-    return []
-  }
-  return findMatches(data, crit, opt.searchStrategy, opt).sort(opt.sort)
-}
-
-function setOptions (_opt) {
-  opt = _opt || {}
-
-  opt.fuzzy = _opt.fuzzy || false
-  opt.limit = _opt.limit || 10
-  opt.searchStrategy = _opt.fuzzy ? _$FuzzySearchStrategy_5 : _$LiteralSearchStrategy_6
-  opt.sort = _opt.sort || NoSort
-}
-
-function findMatches (data, crit, strategy, opt) {
-  var matches = []
-  for (var i = 0; i < data.length && matches.length < opt.limit; i++) {
-    var match = findMatchesInObject(data[i], crit, strategy, opt)
-    if (match) {
-      matches.push(match)
-    }
-  }
-  return matches
-}
-
-function findMatchesInObject (obj, crit, strategy, opt) {
-  for (var key in obj) {
-    if (!isExcluded(obj[key], opt.exclude) && strategy.matches(obj[key], crit)) {
-      return obj
-    }
-  }
-}
-
-function isExcluded (term, excludedTerms) {
-  var excluded = false
-  excludedTerms = excludedTerms || []
-  for (var i = 0, len = excludedTerms.length; i < len; i++) {
-    var excludedTerm = excludedTerms[i]
-    if (!excluded && new RegExp(term).test(excludedTerm)) {
-      excluded = true
-    }
-  }
-  return excluded
-}
-
-'use strict'
-
-var _$Templater_7 = {
-  compile: compile,
-  setOptions: __setOptions_7
-}
-
-var options = {}
-options.pattern = /\{(.*?)\}/g
-options.template = ''
-options.middleware = function () {}
-
-function __setOptions_7 (_options) {
-  options.pattern = _options.pattern || options.pattern
-  options.template = _options.template || options.template
-  if (typeof _options.middleware === 'function') {
-    options.middleware = _options.middleware
-  }
-}
-
-function compile (data) {
-  return options.template.replace(options.pattern, function (match, prop) {
-    var value = options.middleware(prop, data[prop], options.template)
-    if (typeof value !== 'undefined') {
-      return value
-    }
-    return data[prop] || match
-  })
 }
 
 'use strict'
@@ -348,13 +348,15 @@ var _$src_8 = {};
       initWithURL(options.json)
     }
 
-    return {
+    var rv = {
       search: search
     }
+
+    typeof options.success === 'function' && options.success.call(rv)
+    return rv
   }
 
   function initWithJSON (json) {
-    options.success(json)
     _$Repository_4.put(json)
     registerInput()
   }
@@ -377,7 +379,7 @@ var _$src_8 = {};
   }
 
   function registerInput () {
-    options.searchInput.addEventListener('keyup', function (e) {
+    options.searchInput.addEventListener('input', function (e) {
       if (isWhitelistedKey(e.which)) {
         emptyResultsContainer()
         search(e.target.value)
@@ -388,16 +390,17 @@ var _$src_8 = {};
   function search (query) {
     if (isValidQuery(query)) {
       emptyResultsContainer()
-      render(_$Repository_4.search(query))
+      render(_$Repository_4.search(query), query)
     }
   }
 
-  function render (results) {
+  function render (results, query) {
     var len = results.length
     if (len === 0) {
       return appendToResultsContainer(options.noResultsText)
     }
     for (var i = 0; i < len; i++) {
+      results[i].query = query
       appendToResultsContainer(_$Templater_7.compile(results[i]))
     }
   }
