@@ -1,4 +1,5 @@
 # Page sidebar widgets
+# can also use "recent.html"
 page:
   - widget: recent
     title: RECENT ARTICLES
@@ -8,10 +9,11 @@ page:
     title: CATEGORIES
     count: 5
 
+# (Remove from Test Etoile)
   - widget: authors
     title: CONTRIBUTORS
     count: 5
-    
+
 # Footer sidebar widgets
 footer:
   - widget: recent
@@ -48,6 +50,7 @@ footer:
     title: CATEGORIES
     count: 5
 
+# (Remove from Test Etoile)
   - widget: authors
     title: CONTRIBUTORS
     count: 5

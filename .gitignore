@@ -7,3 +7,7 @@ _site
 .sass-cache
 .jekyll-metadata
 .jekyll-cache
+
+
+# Remove from Test Etoile
+# _authors

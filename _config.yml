@@ -7,14 +7,19 @@
 # Site settings
 title:              Test Étoile
 description:        Magazine Jekyll theme for writers and bloggers
-url:                https://codekristi.github.io/Test-Etoile # Site base hostname & protocol, e.g. http://example.com
+url:                https://codekristi.github.io/Test-Etoile
+                    # Site base hostname & protocol, e.g. http://example.com
 baseurl:            # "/Test-Etoile" # Site subpath, e.g. /blog
 logo_image:
   dark:             # Dark logo e.g logo-dark.svg upload to /uploads/ folder, used in header, mobile navigation and page sidebar About widget
   light:            # Light logo e.g. logo-light.svg upload to /uploads/ folder, used in footer About widget
-permalink:          /:title/ # Permalink URLs structure, for permalink style options see: https://jekyllrb.com/docs/permalinks/
-date_format:        "%B %-d, %Y" # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
-uploads:            /uploads/ # Path to post content assets directory i.e post images, pdfs etc
+permalink:          /:title/
+                    # Permalink URLs structure, for permalink style options see: https://jekyllrb.com/docs/permalinks/
+                    # NOTE: update URL structure according to best practices ???
+date_format:        "%B %-d, %Y"
+                    # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
+uploads:            /uploads/
+                    # Path to post content assets directory i.e post images, pdfs etc
 paginate:           7 # Number of posts displayed on blog page
 paginate_path:      "/blog/:num/" # Blog path
 google_analytics:   # Google analytics code, get your code here https://www.google.com/analytics/
@@ -25,6 +30,7 @@ instagram_accesstoken:
 
 footer:             # Default footer image settings
   copyright:        Made by <a href="https://unbound.studio/">human</a> in Bratislava, Slovakia.
+                    # NOTE: Update footer copyright message
 
 # navbar settings
 navbar_primary:
@@ -86,13 +92,15 @@ sass:
   sass_dir:         _sass
 
 # collections:
+# NOTE: add corresponding _folder & content for new collections
 collections:
   authors:
-    output: true
+    output: true # false = doesn't display author name / info
   category:
     output: true
 
 # Defaults
+# NOTE: add default & layout file for new pages
 defaults:
   # _posts
   - scope:

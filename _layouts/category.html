@@ -17,6 +17,10 @@ layout: default
     <hr class="uk-margin-remove-top">
 
     {% for post in site.categories[page.tag] offset:1 limit: 30 %}
+        <!-- add if statement to check that "spotlight" contents aren't displayed in main contents section
+        {% if post.tags contains 'spotlight' %}
+          {% include content-media-top.html %}
+        {% endif %} -->
 
         {% include content-media-left-1-3.html %}
 
