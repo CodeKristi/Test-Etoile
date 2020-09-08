@@ -26,6 +26,8 @@ center:
         url: /blog/
       - title: Contact
         url: /contact/
+      - title: About Me
+        url: /about/
       - title: Sidebar Left
         url: /sidebar-left/
       - title: Sidebar Right
