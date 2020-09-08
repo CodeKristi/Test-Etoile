@@ -110,6 +110,14 @@ defaults:
       layout: post
       share: true
       related: true
+  # _drafts
+  - scope:
+      path: ""
+      type: drafts
+    values:
+      layout: post
+      # share: true
+      # related: true
   # _pages
   - scope:
       path: ""
