@@ -117,7 +117,7 @@
     }
     .article-author {
       font-family: $font-san-serif;
-      font-size: .9375rem; 
+      font-size: .9375rem;
     }
 }
 
@@ -263,11 +263,11 @@ header .uk-sticky-fixed {
       width: 40px;
       left: -70px;
   }
-  @media (min-width: $breakpoint-large) {
-    .share-side {
-        left: -110px;
-    }
-  }
+  // @media (min-width: $breakpoint-large) {
+  //   .share-side {
+  //       left: -110px;
+  //   }
+  //} COMMENTED OUT FOR WHEN BLOG POSTS ARE DISPLAYED WITH SIDEBAR
     .article-title-font {
       font-family: $aticle-title-font-family;
       text-transform: uppercase;
@@ -393,7 +393,7 @@ header .uk-sticky-fixed {
       }
       .widget-about a {
         color: $global-inverse-color;
-      }    
+      }
     }
     .navbar-secondary .uk-navbar-nav li a {
       font-weight: 500;
@@ -428,7 +428,7 @@ header .uk-sticky-fixed {
         .height-large {
             height: 500px;
         }
-      
+
     }
     .section-title {
         font-size: 2.25rem;
