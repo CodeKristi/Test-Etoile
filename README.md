@@ -2,10 +2,23 @@
 ## First of All I Would like to Thank You for Your Purchase, You Are Awesome!
 
 ### Documentation
-Product documentation is available online [https://docs.unbound.studio/etoile-writer-blogger-jekyll-theme/s](https://docs.unbound.studio/etoile-writer-blogger-jekyll-theme/s).
-
+Product documentation is available online [https://docs.unbound.studio/etoile-writer-blogger-jekyll-theme/s](https://docs.unbound.studio/etoile-writer-blogger-jekyll-theme).
 
 <!--
+TO DO:
+* _drafts folder (save files without date) - DONE
+* add about page & navigation - DONE
+* ordering of post files within _posts folder
+* remove / hide authors folder / files / references
+
+ -->
+
+<!-- http://127.0.0.1:4000
+bundle exec jekyll s -->
+
+<!--
+* "page" refers to the page you're on and its front matter variables, or to the "page" variable from the layout that's being used
+*
 -------------------------------------------------------------------------------
 FOLDER STRUCTURES & SITE LAYOUT
 -------------------------------------------------------------------------------
@@ -75,6 +88,15 @@ b) Inside index.html file (contained within "blog" folder)
     ~ paginate-blog.html (reference jekyll-paginate package)
     ~ section-spotlight.html
         ~~ content-media-top.html (3 columns in full width with media on top)
+
+Front matter variables
+_______________________
+title: Best tech companies to work for in 2019
+image: post-image.jpg       # Upload the image to uploads directory
+categories: [business]      # Same as category post tag
+tag: [spotlight, featured]  # Optional: spotlight tag adds post to spotlight section, featured tag add post to featured section
+hidden: true                # Optional: exlude the post from blog page posts
+author: sarah               # Reference author username
 
 ================================================================================
 
