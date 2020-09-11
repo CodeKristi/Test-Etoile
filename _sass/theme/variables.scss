@@ -1,7 +1,7 @@
 // Modify primary template color
 $global-primary-background: #de7a93;
 // Modify body font
-$global-font-family: 'Lora', serif; 
+$global-font-family: 'Lora', serif;
 // Modify article title font
 $aticle-title-font-family: 'ZCOOL XiaoWei', serif;
 
@@ -114,7 +114,7 @@ $navbar-background: #fff;
 $navbar-nav-item-color: $color-dark;
 $navbar-nav-item-hover-color: $global-primary-background;
 $navbar-nav-item-active-color: $global-primary-background;
-$navbar-nav-item-font-size: .75rem;
+$navbar-nav-item-font-size: $global-small-font-size;
 $navbar-nav-item-text-transform: none;
 $navbar-nav-item-font-family: $font-san-serif;
 $navbar-toggle-color: $base-heading-color;

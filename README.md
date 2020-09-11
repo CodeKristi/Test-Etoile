@@ -18,6 +18,7 @@ TO DO:
 * Contact: add spotlight section under contact form
 * Nav bar - add "home" logo instead of word
 * Blog page: have related posts below blog post & recent posts in sidebar
+* Style opened nav search bar for mobile view (navbar.scss)
  -->
 
 <!-- http://127.0.0.1:4000

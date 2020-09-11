@@ -20,6 +20,7 @@ $deprecated:                                    false !default;
 // Tablet Landscape: iPad (1024x768), iPad Pro (1024x1366),
 // Desktop:          Galaxy Tab (1280x800), iPad Pro (1366x1024)
 
+$breakpoint-x-small:                            420px !default;  // Phone Portrait
 $breakpoint-small:                              640px !default;  // Phone landscape
 $breakpoint-medium:                             960px !default;  // Tablet Landscape
 $breakpoint-large:                              1200px !default; // Desktop
@@ -68,6 +69,7 @@ $global-inverse-color:                           #fff !default;
 $global-background:                              #fff !default;
 
 $global-muted-background:                        #f8f8f8 !default;
+$global-muted-grey-background:                   #dbd9d9 !default;
 $global-primary-background:                      #1e87f0 !default;
 $global-secondary-background:                    #222 !default;
 

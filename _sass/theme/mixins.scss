@@ -147,13 +147,21 @@ header .uk-sticky-fixed {
 @mixin hook-navbar(){
     .uk-drop {
         width: 360px;
+        // @media (min-width: $breakpoint-x-small) {
+        //     width: 300px;
+        // }
     }
     .uk-search-navbar {
         font-weight: 500;
     }
     .uk-search-navbar .uk-search-input {
-        font-size: 1.0625rem;
+        font-size: $global-small-font-size; //1.0625rem;
         padding-left: 25px;
+        margin-right: 15px;
+        border-right: solid 2px $global-border;
+    }
+    .uk-search-input:focus {
+        background-color: $search-default-focus-background;
     }
     .uk-button.donations {
         padding: 0 $button-small-padding-horizontal;
@@ -437,7 +445,7 @@ header .uk-sticky-fixed {
         .hero-search {
             .uk-search-input {
                 height: 50px;
-                font-size: 1.1875rem;
+                font-size: $global-small-font-size; //1.1875rem;
                 border-radius: 50px;
                 color: $global-muted-color;
                 font-style: normal;

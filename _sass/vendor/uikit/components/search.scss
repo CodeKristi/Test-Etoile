@@ -27,7 +27,7 @@ $search-default-width:                               180px !default;
 $search-default-height:                              $global-control-height !default;
 $search-default-padding-horizontal:                  6px !default;
 $search-default-background:                          $global-muted-background !default;
-$search-default-focus-background:                    $search-default-background !default;
+$search-default-focus-background:                    $global-muted-grey-background !default;
 
 $search-default-icon-width:                          $global-control-height !default;
 
@@ -66,7 +66,7 @@ $search-toggle-hover-color:                          $global-color !default;
     /* 2 */
     position: relative;
     /* 3 */
-    max-width: 100%;
+    max-width: 80%;
     /* 4 */
     margin: 0;
 }
