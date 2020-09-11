@@ -1,8 +1,22 @@
 <div class="widget">
-  <h4>{{ include.title }}</h4>
-  <ul class="uk-list">
-  {% for post in site.posts | limit: include.count %}
-      <li><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></li>
-  {% endfor %}
-  </ul>
+    <h4>{{ include.title }}</h4>
+    <ul class="uk-list">
+        {% for display in include.display %}
+            {% for post in site.posts | limit: include.count %} <!-- order by newest date -->
+                {% if display == 'sidebar' %}
+                    <li>
+                        <!-- {% if post.tags contains 'spotlight' %} -->
+                            {% include content-media-top.html %}
+                        <!-- {% endif %} -->
+                    </li>
+                {% elsif display == 'footer' %}
+                    <li>
+                        <a href="{{ site.baseurl }}{{ post.url }}">
+                            {{post.title}}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </ul>
 </div>
