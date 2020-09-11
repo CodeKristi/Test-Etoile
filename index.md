@@ -28,6 +28,4 @@ layout: full
 
 {% include section-cta.html title="Want To Contribute?" text="We are looking for writers from all walks of life to contribute to out blog, if you have something to say get in touch." button_text="Contact Us" button_url="/contact/" blank="true" %}
 
-
-
-<!-- {% include section-author.html author="john" title="Hello, I am Jane! Welcome to my blog." %} -->
+{% include section-author.html author="john" title="Hello, I am Jane! Welcome to my blog." %}

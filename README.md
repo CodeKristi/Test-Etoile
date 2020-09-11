@@ -9,10 +9,15 @@ Product documentation is available online [https://docs.unbound.studio/etoile-wr
 <!--
 TO DO:
 * _drafts folder (save files without date) - DONE
-* add about page & navigation - DONE
+* add about page & link in navigation - DONE
 * ordering of post files within _posts folder
 * remove / hide authors folder / files / references
-
+* Home: keep "about me" section there
+* Home: divide posts into categories to display instead of list of latest (use "spotlight" section for latest, followed by different categories)
+* "ask me" page with FAQs??
+* Contact: add spotlight section under contact form
+* Nav bar - add "home" logo instead of word
+* Blog page: have related posts below blog post & recent posts in sidebar
  -->
 
 <!-- http://127.0.0.1:4000
