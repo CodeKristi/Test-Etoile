@@ -17,11 +17,11 @@
 - title: Sport
   url: /category/sport/
 
-- title: Contact
-  url: /contact/
-
 - title: About Me
   url: /about/
 
-- title: 404
-  url: /404/
+- title: Contact
+  url: /contact/
+
+# - title: 404
+#   url: /404/

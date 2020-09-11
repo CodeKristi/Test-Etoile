@@ -1,17 +1,17 @@
 # Page sidebar widgets
 page:
-  - widget: authors # NOTE: update authors to become a small 'about me' section with button to about me page (eg content-author.)
-    title: CONTRIBUTORS
-    count: 5
+    - widget: authors # NOTE: update authors to become a small 'about me' section with button to about me page (eg content-author.)
+      title: CONTRIBUTORS
+      count: 5
 
-  - widget: recent # can also use "recent.html" # NOTE: edit recent so that it shows the post image & title
-    title: RECENT ARTICLES
-    count: 3
-    display: sidebar
+    - widget: recent # can also use "recent.html" # NOTE: edit recent so that it shows the post image & title
+      title: RECENT ARTICLES
+      count: 3
+      display: sidebar
 
-  - widget: categories
-    title: CATEGORIES
-    count: 5
+    - widget: categories
+      title: CATEGORIES
+      count: 5
 
 # NOTE: add a "search" bar / btn ??
 # -- authors / about me
@@ -26,47 +26,46 @@ page:
 
 # Footer sidebar widgets
 footer:
-  - widget: recent
-    title: RECENT POSTS
-    count: 4
-    display: footer
+    - widget: links
+      title: ABOUT
+      links:
+          - title: "About Me"
+            url: /about/
+          - title: "Our Story" # NOTE: Add a "our story" page??
+            url: /#/
+          - title: "Contact"
+            url: /contact/
+          # - title: "Contribute"
+          #   url: /#/
+          - title: "Terms" # NOTE: Add a "terms" page??
+            url: /#/
 
-  - widget: links
-    title: ABOUT
-    links:
-      - title: "About Me"
-        url: /about/
-      - title: "Our Story" # NOTE: Add a "our story" page??
-        url: /#/
-      - title: "Contact"
-        url: /contact/
-      # - title: "Contribute"
-      #   url: /#/
-      - title: "Terms" # NOTE: Add a "terms" page??
-        url: /#/
+    - widget: links
+      title: PRODUCTS # NOTE: remove this section??
+      links:
+          # - title: "Advertising"
+          #   url: /#/
+          - title: "Featured Story" # NOTE: Add a link to the featured tag post ??
+            url: /#/
+          - title: "Donations" # NOTE: Add a "donations" page??
+            url: /#/
+          # - title: "Charity"
+          #   url: /#/
 
-
-  - widget: links
-    title: PRODUCTS # NOTE: remove this section??
-    links:
-      # - title: "Advertising"
-      #   url: /#/
-      - title: "Featured Story" # NOTE: Add a link to the featured tag post ??
-        url: /#/
-      - title: "Donations" # NOTE: Add a "donations" page??
-        url: /#/
-      # - title: "Charity"
-      #   url: /#/
-
-  - widget: categories
-    title: CATEGORIES
-    count: 5
+    - widget: categories
+      title: CATEGORIES
+      count: 5
 
 # (Remove from Test Etoile)
-  # - widget: authors
-  #   title: CONTRIBUTORS
-  #   count: 5
+    # - widget: authors
+    #   title: CONTRIBUTORS
+    #   count: 5
 
-  - widget: about
-    # content: Content of some sort..
-    copyright: true # NOTE: update copyright msg in config file
+    - widget: recent
+      title: RECENT POSTS
+      count: 4
+      display: footer
+
+    - widget: about
+      # content: Content of some sort..
+      copyright: true # NOTE: update copyright msg in config file

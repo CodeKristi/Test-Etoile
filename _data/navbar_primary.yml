@@ -1,12 +1,12 @@
 # Navbar menu navigation links
 left:
-
+    
 center:
   - title: Home
     url: /
 
-  - title: All Posts
-    url: /blog/
+  # - title: All Posts
+  #   url: /blog/
 
   - title: Business
     url: /category/business/
@@ -24,15 +24,15 @@ center:
     dropdown:
       - title: Blog
         url: /blog/
-      - title: Contact
-        url: /contact/
       - title: About Me
         url: /about/
-      - title: Sidebar Left
-        url: /sidebar-left/
-      - title: Sidebar Right
-        url: /sidebar-right/
-      - title: 404
-        url: /404/
+      - title: Contact
+        url: /contact/
+      # - title: Sidebar Left
+      #   url: /sidebar-left/
+      # - title: Sidebar Right
+      #   url: /sidebar-right/
+      # - title: 404
+      #   url: /404/
 
 right:
