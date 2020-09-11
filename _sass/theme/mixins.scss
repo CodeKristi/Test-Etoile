@@ -382,6 +382,10 @@ header .uk-sticky-fixed {
     .sidebar-footer {
         font-family: $font-san-serif;
         font-weight: 500;
+        text-align: left;
+        @media (max-width: $breakpoint-medium) {
+             text-align: center !important;
+        }
         ul {
             a {
                 color: $inverse-link-muted-color;
@@ -392,6 +396,10 @@ header .uk-sticky-fixed {
         }
         .widget {
             font-size: $global-xsmall-font-size;
+            @media (min-width: $breakpoint-medium) {
+                 margin-right: $global-margin;
+                 margin-left: $global-margin;
+            }
         > h4 {
           font-size: 1.0625rem;
         }

@@ -26,6 +26,12 @@ page:
 
 # Footer sidebar widgets
 footer:
+    - widget: recent
+      title: RECENT POSTS
+      count: 4
+      display: footer
+
+
     - widget: links
       title: ABOUT
       links:
@@ -56,15 +62,10 @@ footer:
       title: CATEGORIES
       count: 5
 
-# (Remove from Test Etoile)
-    # - widget: authors
-    #   title: CONTRIBUTORS
-    #   count: 5
-
-    - widget: recent
-      title: RECENT POSTS
-      count: 4
-      display: footer
+    # (Remove from Test Etoile)
+        # - widget: authors
+        #   title: CONTRIBUTORS
+        #   count: 5
 
     - widget: about
       # content: Content of some sort..
