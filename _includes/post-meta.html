@@ -16,11 +16,18 @@
         {% assign date_format = site.date_format | default: "%b %-d, %Y" %}
         {{ page.date | date: date_format }}
     </time>&nbsp;
-
   </div>
-    <div class="">
+  <div class="">
+      <span class="read-time">
+          <span>Estimated Reading Time:</span>
+          {% assign words = page.content | strip_html | number_of_words %}
+          {% assign ert = words | divided_by:200 | at_least: 1 %}
+          {{ ert }} min{% if ert != 1 %}s{% endif %}
+      </span>
+  </div>
+    <!-- <div class="">
       {% if author.name %}
         <strong>{{ site.strings.author_by | default: 'By' }} <span itemprop="name"><span itemprop="name">{{ author.name }}</span></span></strong>
       {% endif %}
-    </div>
+    </div> -->
 </div>
