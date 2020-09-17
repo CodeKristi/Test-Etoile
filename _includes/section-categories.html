@@ -1,0 +1,21 @@
+{%- if include.title -%}
+{% assign category_name = include.title  %}
+
+<div class="uk-container uk-margin-medium-bottom">
+    <hr class="uk-margin-remove">
+    <h2 class="section-title uk-text-center uk-margin uk-text-capitalize">{{- category_name -}}</h2>
+    <hr class="uk-margin-remove">
+</div>
+
+<div class="uk-container uk-container-small uk-margin-medium-bottom">
+    <div class="uk-child-width-1-2@s uk-child-width-expand@l uk-grid-medium uk-flex-center uk-grid-divider" data-uk-grid>
+    {% for post in site.categories[category_name] | limit: include.limit %}
+        {% include content-media-top.html %}
+    {% endfor %}
+    </div>
+
+    <div class="uk-margin-medium uk-text-center">
+        <a class="hvr-forward" href="/category/category_name/">{{ include.more | default: 'More Articles' }} &rarr;</a>
+    </div>
+</div>
+{%- endif -%}

@@ -52,10 +52,10 @@ layout: default
 
                 <div class="">
                     <span class="read-time">
-                        <span>Estimated Reading Time:</span>
+                        <i><span>Estimated Reading Time:</span>
                         {% assign words = page.content | strip_html | number_of_words %}
                         {% assign ert = words | divided_by:200 | at_least: 1 %}
-                        {{ ert }} min{% if ert != 1 %}s{% endif %}
+                        {{ ert }} min{% if ert != 1 %}s{% endif %}</i>
                     </span>
                 </div>
 

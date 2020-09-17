@@ -8,6 +8,18 @@ layout: full
 {% include section-featured.html title="Featured Story" %}
 
 
+{% include section-latest.html title="Latest Articles" limit="4" more="More Articles" %}
+
+
+{% include section-categories.html title="business" limit="4" more="More Articles" %}
+
+{% include section-categories.html title="culture" limit="4" more="More Articles" %}
+
+{% include section-categories.html title="sport" limit="4" more="More Articles" %}
+
+{% include section-categories.html title="travel" limit="4" more="More Articles" %}
+
+
 {% include section-spotlight.html title="Spotlight" %}
 
 
@@ -18,9 +30,6 @@ layout: full
 
 
 {% include section-instagram.html title="Latest On Instagram" cols="4" count="4" gutter="true" %}
-
-
-{% include section-latest.html title="Latest Articles" limit="4" more="More Articles" %}
 
 
 <!-- {% include section-ad.html title="Advertisement" image="https://via.placeholder.com/800x180/f4f4f4/fff.png?text=+" url="#" blank="true" %} -->
