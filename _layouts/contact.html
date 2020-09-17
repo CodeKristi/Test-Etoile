@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div class="uk-container uk-container-xsmall">
+    {% if page.title %}
+    <div class="uk-container uk-margin-medium-bottom">
+        <h1 class="uk-article-title uk-text-center uk-margin-medium-bottom">{{ page.title | escape }}</h1>
+    </div>
+    {% endif %}
+    <div class="content-primary">
+        {{ content }}
+    </div>
+    {% include formspree.html email="my_name@gmail.com" redirect="/thanks/" %}
+</div>
+
+{% include section-spotlight.html title="Explore More" %}
