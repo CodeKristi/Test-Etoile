@@ -11,12 +11,14 @@ TO DO:
 * _drafts folder (save files without date) - DONE
 * add about page & link in navigation - DONE
 * Add "reading time" in place of author name on blog excerpts - DONE
+* Home: divide posts into categories to display instead of list of latest (use "spotlight" section for latest, followed by different categories) - DONE
+* Contact: add spotlight section under contact form - DONE
+*
 * ordering of post files within _posts folder
 * remove / hide authors folder / files / references
 * Home: keep "about me" section there
-* Home: divide posts into categories to display instead of list of latest (use "spotlight" section for latest, followed by different categories)
 * "ask me" page with FAQs??
-* Contact: add spotlight section under contact form
+* make section headers on home clickable?
 * Nav bar - add "home" logo instead of word
 * Blog page: have related posts below blog post & recent posts in sidebar
 * Styling: opened nav search bar for mobile view (navbar.scss) - input field color, width
