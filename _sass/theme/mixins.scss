@@ -278,7 +278,7 @@ header .uk-sticky-fixed {
   //} COMMENTED OUT FOR WHEN BLOG POSTS ARE DISPLAYED WITH SIDEBAR
     .article-title-font {
       font-family: $aticle-title-font-family;
-      text-transform: capitalize;
+      text-transform: capitalize !important;
     }
     .article-title-spacing {
       letter-spacing: $aticle-title-letter-spacing;
